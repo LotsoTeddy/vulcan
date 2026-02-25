@@ -10,14 +10,6 @@ load_dotenv()
 
 app = typer.Typer()
 
-volcengine_access_key = os.getenv("VOLCENGINE_ACCESS_KEY", "")
-volcengine_secret_key = os.getenv("VOLCENGINE_SECRET_KEY", "")
-vulcan_host = os.getenv("VULCAN_HOST", "")
-
-assert volcengine_access_key, "VOLCENGINE_ACCESS_KEY is not set"
-assert volcengine_secret_key, "VOLCENGINE_SECRET_KEY is not set"
-assert vulcan_host, "VULCAN_HOST is not set"
-
 
 @app.command()
 def version():
@@ -32,6 +24,15 @@ def add(id: str):
     """
     Add an AgentKit resource to Vulcan platform.
     """
+
+    volcengine_access_key = os.getenv("VOLCENGINE_ACCESS_KEY", "")
+    volcengine_secret_key = os.getenv("VOLCENGINE_SECRET_KEY", "")
+    vulcan_host = os.getenv("VULCAN_HOST", "")
+
+    assert volcengine_access_key, "VOLCENGINE_ACCESS_KEY is not set"
+    assert volcengine_secret_key, "VOLCENGINE_SECRET_KEY is not set"
+    assert vulcan_host, "VULCAN_HOST is not set"
+
     if id.startswith("r-"):
         print(f"Adding agent with id: {id}")
         vulcan_id = add_agent(
