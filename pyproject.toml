@@ -11,8 +11,9 @@ dependencies = [
     "typer>=0.24.1",
 ]
 
-[tool.setuptools]
-packages = ["vulcan"]
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["vulcan*"]
 
 [project.scripts]
 vulcan = "vulcan.cli.main:app"
