@@ -1,5 +1,0 @@
-pydantic
-requests
-supabase
-fastapi
-uvicorn
