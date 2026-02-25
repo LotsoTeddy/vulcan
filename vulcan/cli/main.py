@@ -65,7 +65,9 @@ def invoke_agent(id: str, prompt: str):
         raise ValueError(f"Invalid id: {id}")
 
     response = requests.post(
-        f"{VOLCAN_HOST}/invoke/agent", json={"id": id, "prompt": prompt}
+        f"{VOLCAN_HOST}/invoke/agent",
+        json={"id": id, "prompt": prompt},
+        timeout=99999,
     )
     response.raise_for_status()
 
