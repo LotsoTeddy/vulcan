@@ -2,13 +2,14 @@ import os
 
 import requests
 import typer
-from dotenv import load_dotenv
 
 from vulcan.cli.utils.add_agent import add_agent
 
-load_dotenv()
-
 app = typer.Typer()
+
+VOLCAN_HOST = (
+    "https://sd6f6o1jtvotb9m1jclvg.apigateway-cn-beijing.volceapi.com/"
+)
 
 
 @app.command()
